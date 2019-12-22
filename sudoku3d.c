@@ -6,8 +6,7 @@ void printSudoku(int ***);
 // Declare solveSudoku function
 int solveSudoku(int ***);
 
-//Helper functions. You can define any functions that can help your solve the problem
-
+//Check to see if it is finished
 int isDone(int ***block){
     //1 is done, 0 is not done
     for (int i = 0; i < 9; i++){
@@ -22,6 +21,7 @@ int isDone(int ***block){
     return 1;
 }
 
+//Check the square to be safe
 int squareArg(int ***block, int num, int a){
     //1 if there is conflict, 0 if no conflict
     //Checks each square for conflict
@@ -35,6 +35,7 @@ int squareArg(int ***block, int num, int a){
     return 0;
 }
 
+//Check the row to see if it is safe
 int checkRow(int ***block, int num, int i, int j){
     if(i < 3){
         i = 0;
@@ -71,6 +72,7 @@ int checkRow(int ***block, int num, int i, int j){
     return 0;
 }
 
+//Checks the column to see if it is safe
 int checkCol(int ***block, int num, int i, int k){
     int r1 = 0;
     int r2 = 0;
@@ -109,7 +111,6 @@ int isSafe(int ***blocks, int num, int i, int j, int k){
 /*
 The main program reads a text file containing the block values of the Sudoku grid.
 It then saves each 3x3 block into a 2D array. The Sudoku grid is composed of 9 3x3 blocks.
-DO NOT MODIFY THE MAIN FUNTION!!!
 */
 int main(int argc, char **argv){
     if (argc != 2){
@@ -158,7 +159,6 @@ int main(int argc, char **argv){
 void printSudoku(int ***arr){
     // This function will print out the complete Sudoku grid (arr). It must produce the output in the SAME format as the samples in the instructions.
 
-    // Your implementation here
     //Need to print
     for (int i = 0; i < 3; i++){
         for (int j = 0; j < 3; j++){
